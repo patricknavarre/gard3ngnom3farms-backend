@@ -1,19 +1,34 @@
 const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema({
-    cartItem_Title: {
+    buyerEmail: {
         type: String,
         required: true
     },
-    cartItem_Qty: {
+    items: {
+        type: Array,
+        required: true
+    },
+    orderDate: {
+        type: Date,
+        required: true
+    },
+    total: {
         type: Number,
         required: true
     },
-    cartItem_Price: {
-        type: Number,
-        required: true
+    completed: {
+        type: Boolean,
+        default: false
     },
+    specialNote: {
+        type: String,
+        
+    }
 });
+
+// function that will print out order to printer or send email/twilio text 
+//  dashboard - prepared order 
 
 const Order = mongoose.model("order", orderSchema)
 
