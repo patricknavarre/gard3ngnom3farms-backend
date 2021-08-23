@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require("mongoose")
 
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -12,8 +13,12 @@ var app = express();
 
 // mongoose boilerplate
 
+const MONGO_DB_URI = "mongodb+srv://gnom3dbUser:PMaSn6CkQ9J7BQws@gard3ngnom3farmscluster.vbscs.mongodb.net/gard3ngnom3farms?retryWrites=true&w=majority"
+
+require("dotenv").config();
+
 mongoose
-	.connect("mongodb://localhost:27017/gard3ngnom3farms-market", {
+	.connect(MONGO_DB_URI, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 })
