@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require("mongoose")
 
+require("dotenv").config();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -13,17 +14,13 @@ var app = express();
 
 // mongoose boilerplate
 
-const MONGO_DB_URI = "mongodb+srv://gnom3dbUser:PMaSn6CkQ9J7BQws@gard3ngnom3farmscluster.vbscs.mongodb.net/gard3ngnom3farms?retryWrites=true&w=majority"
-
-require("dotenv").config();
-
 mongoose
-	.connect(MONGO_DB_URI, {
+	.connect(process.env.MONGO_DB_URI, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 })
 .then(() => {
-	console.log("MONGO DB CONNECTED");
+	console.log("MONGO DB CONNECTED. Alright Alright Alright.");
 })
 .catch((e) => {
 	console.log(e);
