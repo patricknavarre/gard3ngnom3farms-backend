@@ -10,7 +10,6 @@ module.exports = {
         items,
         orderDate,
         total,
-        completed,
         specialNote,
       });
 
